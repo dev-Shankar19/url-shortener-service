@@ -1,0 +1,104 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      # ── Global CORS ──────────────────────────────────────────────────────
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
+            allowedHeaders: "*"
+
+      # ── Routes ───────────────────────────────────────────────────────────
+      routes:
+
+        # Order Service
+        - id: order-service
+          uri: ${ORDER_SERVICE_URL:http://localhost:8081}
+          predicates:
+            - Path=/api/orders/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: order-cb
+                fallbackUri: forward:/fallback/order
+
+        # Product Service
+        - id: product-service
+          uri: ${PRODUCT_SERVICE_URL:http://localhost:8082}
+          predicates:
+            - Path=/api/products/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: product-cb
+                fallbackUri: forward:/fallback/product
+
+        # Payment Service
+        - id: payment-service
+          uri: ${PAYMENT_SERVICE_URL:http://localhost:8083}
+          predicates:
+            - Path=/api/payments/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: payment-cb
+                fallbackUri: forward:/fallback/payment
+
+        # ── Swagger/OpenAPI aggregation routes ───────────────────────────
+        - id: order-service-docs
+          uri: ${ORDER_SERVICE_URL:http://localhost:8081}
+          predicates:
+            - Path=/order-service/api-docs
+          filters:
+            - RewritePath=/order-service/api-docs, /api-docs
+
+        - id: product-service-docs
+          uri: ${PRODUCT_SERVICE_URL:http://localhost:8082}
+          predicates:
+            - Path=/product-service/api-docs
+          filters:
+            - RewritePath=/product-service/api-docs, /api-docs
+
+        - id: payment-service-docs
+          uri: ${PAYMENT_SERVICE_URL:http://localhost:8083}
+          predicates:
+            - Path=/payment-service/api-docs
+          filters:
+            - RewritePath=/payment-service/api-docs, /api-docs
+
+# ── SpringDoc aggregated Swagger UI ─────────────────────────────────────────
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    # Show all services in one Swagger UI dropdown
+    urls:
+      - name: Order Service
+        url: /order-service/api-docs
+      - name: Product Service
+        url: /product-service/api-docs
+      - name: Payment Service
+        url: /payment-service/api-docs
+  api-docs:
+    enabled: true
+
+# ── Centralized Auth ────────────────────────────────────────────────────────
+# Change this in production — inject via environment variable
+gateway:
+  auth:
+    api-key: ${GATEWAY_API_KEY:secret-api-key-change-in-prod}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,gateway
+  endpoint:
+    gateway:
+      enabled: true

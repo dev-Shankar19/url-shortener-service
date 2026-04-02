@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="130b022a-609e-41ee-9c01-fe33d5dc7295" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../budget-tracker/src/main/java/com/familybudget/budget_tracker/config/SecurityBeansConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../budget-tracker/src/main/java/com/familybudget/budget_tracker/controller/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../budget-tracker/src/main/java/com/familybudget/budget_tracker/dto/AuthResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../budget-tracker/src/main/java/com/familybudget/budget_tracker/entity/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../budget-tracker/src/main/java/com/familybudget/budget_tracker/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../budget-tracker/src/main/java/com/familybudget/budget_tracker/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../budget-tracker/src/main/java/com/familybudget/budget_tracker/service/AuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TCS_NQT/Arrayss.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TCS_NQT/Hash.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TCS_NQT/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TCS_NQT/Strings.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="3AYl9MZQR0t3C7zofLBkcO82ihc" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/shank/OneDrive/Desktop/me/SDE/src/Projects/banking-api"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="130b022a-609e-41ee-9c01-fe33d5dc7295" name="Changes" comment="" />
+      <created>1772777232666</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1772777232666</updated>
+    </task>
+    <servers />
+  </component>
+</project>
